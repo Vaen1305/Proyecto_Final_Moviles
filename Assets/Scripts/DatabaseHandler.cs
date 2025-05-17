@@ -8,7 +8,7 @@ public class DatabaseHandler : MonoBehaviour
 {
     private string userID;
     private DatabaseReference reference;
-
+    [SerializeField] private StudentSO studentSO;
 
     private void Awake()
     {
@@ -35,8 +35,13 @@ public class DatabaseHandler : MonoBehaviour
         reference.Child("users").Child(userID).SetRawJsonValueAsync(json);
     }
 
+    public void UpdateFirstName(string newName)
+    {
+        studentSO.SetName(newName);
+        reference.Child("users").Child(userID).Child("firstName").SetValueAsync(newName);
+    }
 
-    private IEnumerator GetFirstName(Action<string> onCallBack)
+    public IEnumerator GetFirstName(Action<string> onCallBack)
     {
         var userNameData = reference.Child("users").Child(userID).Child("firstName").GetValueAsync();
 
@@ -47,7 +52,9 @@ public class DatabaseHandler : MonoBehaviour
         if (userNameData != null)
         {
             DataSnapshot snapshot = userNameData.Result;
-            onCallBack?.Invoke(snapshot.Value.ToString());
+            string name = snapshot.Value.ToString();
+            studentSO.SetName(name);
+            onCallBack?.Invoke(name);
         }
     }
 

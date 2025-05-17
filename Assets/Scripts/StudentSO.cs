@@ -10,7 +10,10 @@ public class StudentSO : ScriptableObject
 
     public Student StudentData => studentData;
 
-
+    public void SetName(string newName)
+    {
+        studentData.name = newName;
+    }
     public Student GetBasicStudentData()
     {
         return new Student("Gabriel", "Gab759", 19, 69, "Vagabundo");
