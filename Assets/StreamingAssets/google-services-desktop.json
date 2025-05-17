@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "631021620540",
+    "firebase_url": "https://c26-movil-2025-1-default-rtdb.firebaseio.com",
+    "project_id": "c26-movil-2025-1",
+    "storage_bucket": "c26-movil-2025-1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:631021620540:android:06345738a523ca2eb62239",
+        "android_client_info": {
+          "package_name": "com.SulcaMarlo.Moviles_Lab_9"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB35GS--nWPjJlKO4m_8RAVN2ae0GrSKM8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
