@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
 
-public class GlobalSceneManager : MonoBehaviour
+public class GlobalSceneManager_s : MonoBehaviour
 {
     public static Action<string> OnSceneLoaded;
     public static Action<string> OnSceneUnloaded;
@@ -20,7 +20,7 @@ public class GlobalSceneManager : MonoBehaviour
         OnSceneLoaded?.Invoke(sceneName);
     }
 
-    public void UnloadScene(string sceneName)
+    public void UnloadScenes(string sceneName)
     {
         StartCoroutine(UnloadSceneAsync(sceneName));
     }
@@ -40,7 +40,7 @@ public class GlobalSceneManager : MonoBehaviour
             Scene scene = SceneManager.GetSceneAt(i);
             if (scene != activeScene)
             {
-                UnloadScene(scene.name);
+                UnloadScenes(scene.name);
             }
         }
     }
