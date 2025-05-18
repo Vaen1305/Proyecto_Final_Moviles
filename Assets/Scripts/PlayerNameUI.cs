@@ -4,6 +4,7 @@ using TMPro;
 public class PlayerNameUI : MonoBehaviour
 {
     public TMP_InputField playerNameInputField;
+    public TMP_InputField playerIdInputField;
     public TMP_Text playerNameText;
     public DatabaseHandler databaseHandler;
 
@@ -22,7 +23,8 @@ public class PlayerNameUI : MonoBehaviour
     public void OnChangeNameButton()
     {
         string newName = playerNameInputField.text;
-        databaseHandler.UpdateFirstName(newName);
+        int newId = int.Parse(playerIdInputField.text);
+        databaseHandler.UpdateFirstName(newName, newId);
         playerNameText.text = newName;
     }
 }

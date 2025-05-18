@@ -27,7 +27,7 @@ public class DataBaseManager : MonoBehaviour
 
         string json = JsonUtility.ToJson(newStudent);
 
-        reference.Child("Students").Child(UserID).Child(newStudent.nickName).SetRawJsonValueAsync(json);
+        reference.Child("Students").Child(UserID)./*Child(newStudent.nickName).*/SetRawJsonValueAsync(json);
     }
 }
 
@@ -35,17 +35,11 @@ public class DataBaseManager : MonoBehaviour
 public class Student
 {
     public string name;
-    public string nickName;
-    public int age; 
     public int id;
-    public string career;
 
-    public Student(string name, string nickName, int age, int id, string career)
+    public Student(string name, int id)
     {
         this.name = name;
-        this.nickName = nickName;
-        this.age = age;
         this.id = id;
-        this.career = career;
     }
 }

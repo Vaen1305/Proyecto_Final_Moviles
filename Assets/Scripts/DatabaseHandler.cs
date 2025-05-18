@@ -24,8 +24,7 @@ public class DatabaseHandler : MonoBehaviour
 
         Invoke(nameof(GetUserInfo), 1f);
     }
-
-
+    /*
     private void CreateUser()
     {
         User newUser = new User("Pedro", "Piedrito", 9781235);
@@ -34,11 +33,18 @@ public class DatabaseHandler : MonoBehaviour
 
         reference.Child("users").Child(userID).SetRawJsonValueAsync(json);
     }
+    */
 
-    public void UpdateFirstName(string newName)
+    public void UpdateFirstName(string newName, int newId)
     {
         studentSO.SetName(newName);
-        reference.Child("users").Child(userID).Child("firstName").SetValueAsync(newName);
+        studentSO.SetId(newId);
+
+        var studentRef = reference.Child("users").Child(userID).Child(newId.ToString());
+
+        Student newStudent = new Student(newName, newId);
+        string json = JsonUtility.ToJson(newStudent);
+        studentRef.SetRawJsonValueAsync(json);
     }
 
     public IEnumerator GetFirstName(Action<string> onCallBack)
@@ -58,7 +64,7 @@ public class DatabaseHandler : MonoBehaviour
         }
     }
 
-
+    
     private IEnumerator GetLastName(Action<string> onCallBack)
     {
         var userNameData = reference.Child("users").Child(userID).Child("lastName").GetValueAsync();
@@ -70,14 +76,14 @@ public class DatabaseHandler : MonoBehaviour
         if (userNameData != null)
         {
             DataSnapshot snapshot = userNameData.Result;
-            onCallBack?.Invoke(snapshot.Value.ToString());
+            onCallBack?.Invoke("snapshot.Value.ToString()");
         }
     }
+    
 
-
-    private IEnumerator GetCodeID(Action<int> onCallBack)
+    /*private IEnumerator GetCodeID(Action<int> onCallBack)
     {
-        var userNameData = reference.Child("users").Child(userID).Child(nameof(User.codeID)).GetValueAsync();
+        var userNameData = reference.Child("users").Child(userID).GetValueAsync();
 
 
         yield return new WaitUntil(predicate: () => userNameData.IsCompleted);
@@ -91,14 +97,14 @@ public class DatabaseHandler : MonoBehaviour
             //https://teamtreehouse.com/community/when-should-i-use-int-and-intparse-whats-the-difference
             onCallBack?.Invoke(int.Parse(snapshot.Value.ToString()));
         }
-    }
+    }*/
 
 
     public void GetUserInfo()
     {
         StartCoroutine(GetFirstName(PrintData));
         StartCoroutine(GetLastName(PrintData));
-        StartCoroutine(GetCodeID(PrintData));
+        //StartCoroutine(GetCodeID(PrintData));
     }
 
 
@@ -108,10 +114,10 @@ public class DatabaseHandler : MonoBehaviour
     }
 
 
-    private void PrintData(int code)
+    /*private void PrintData(int code)
     {
         Debug.Log(code);
-    }
+    }*/
 }
 
 
@@ -120,13 +126,13 @@ public class User
 {
     public string firstName;
     public string lastName;
-    public int codeID;
+    //public int codeID;
 
 
-    public User(string firstName, string lastName, int codeID)
+    public User(string firstName, string lastName/*,int codeID*/)
     {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.codeID = codeID;
+        //this.codeID = codeID;
     }
 }

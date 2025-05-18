@@ -12,9 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c9528c426d4a646aa069d2fa8a43fc, type: 3}
   m_Name: Student
   m_EditorClassIdentifier: 
-  studentData:
-    name: Gabriel
-    nickName: Gab759
-    age: 19
-    id: 69
-    career: Vagabundo
+  playerName: blade
+  id: 3

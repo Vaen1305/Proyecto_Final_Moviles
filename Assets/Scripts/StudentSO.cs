@@ -6,16 +6,20 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Student", menuName = "ScriptableObjects/Example/Student")]
 public class StudentSO : ScriptableObject
 {
-    [SerializeField] private Student studentData;
-
-    public Student StudentData => studentData;
-
+    [SerializeField] private string playerName;
+    [SerializeField] private int id;
+    public string PlayerNameName => playerName;
+    public int Id => id;
     public void SetName(string newName)
     {
-        studentData.name = newName;
+        playerName = newName;
+    }
+    public void SetId(int newId)
+    {
+        id = newId;
     }
     public Student GetBasicStudentData()
     {
-        return new Student("Gabriel", "Gab759", 19, 69, "Vagabundo");
+        return new Student(name, id);
     }
 }
