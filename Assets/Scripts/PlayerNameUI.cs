@@ -24,7 +24,8 @@ public class PlayerNameUI : MonoBehaviour
     {
         string newName = playerNameInputField.text;
         int newId = int.Parse(playerIdInputField.text);
-        databaseHandler.UpdateFirstName(newName, newId);
+        int newScore = 0;
+        databaseHandler.UpdateFirstName(newName, newId, newScore);
         playerNameText.text = newName;
     }
 }

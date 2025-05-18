@@ -8,8 +8,12 @@ public class StudentSO : ScriptableObject
 {
     [SerializeField] private string playerName;
     [SerializeField] private int id;
-    public string PlayerNameName => playerName;
+    [SerializeField] private int score;
+
+    public string PlayerName => playerName;
     public int Id => id;
+    public int Score => score;
+
     public void SetName(string newName)
     {
         playerName = newName;
@@ -18,8 +22,12 @@ public class StudentSO : ScriptableObject
     {
         id = newId;
     }
+    public void SetScore(int newScore)
+    {
+        score = newScore;
+    }
     public Student GetBasicStudentData()
     {
-        return new Student(name, id);
+        return new Student(playerName, id, score);
     }
 }

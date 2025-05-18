@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text highScoreText;
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TMP_Text finalScoreText;
+    [SerializeField] private DatabaseHandler databaseHandler;
+    [SerializeField] private StudentSO studentSO;
 
     private int currentScore = 0;
     private int highScore = 0;
@@ -74,19 +76,69 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SaveScoreLocal(string playerName, int score)
+    {
+        int[] scores = new int[5];
+        string[] names = new string[5];
+
+        for (int i = 0; i < 5; i++)
+        {
+            scores[i] = PlayerPrefs.GetInt($"score_{i}", 0);
+            names[i] = PlayerPrefs.GetString($"name_{i}", "---");
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (score > scores[i])
+            {
+                for (int j = 4; j > i; j--)
+                {
+                    scores[j] = scores[j - 1];
+                    names[j] = names[j - 1];
+                }
+                scores[i] = score;
+                names[i] = playerName;
+                break;
+            }
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            PlayerPrefs.SetInt($"score_{i}", scores[i]);
+            PlayerPrefs.SetString($"name_{i}", names[i]);
+        }
+        PlayerPrefs.Save();
+    }
+
     public void GameOver(int finalScore)
     {
         finalScoreText.text = $"Final Score: {currentScore}";
         gameOverPanel.SetActive(true);
+
+        scoreText.gameObject.SetActive(false);
+        highScoreText.gameObject.SetActive(false);
+
+        string playerName = studentSO.PlayerName;
+        SaveScoreLocal(playerName, currentScore);
+
+        if (databaseHandler != null)
+        {
+            databaseHandler.SaveScoretoFirebase(playerName, currentScore);
+            databaseHandler.UpdateStudentScoreInFirebase(studentSO.Id, currentScore);
+        }
+
+        Time.timeScale = 0f;
     }
 
     public void RestartGame()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 }

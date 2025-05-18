@@ -18,6 +18,16 @@ public class GlobalSceneManager_s : MonoBehaviour
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
         yield return new WaitUntil(() => operation.isDone);
         OnSceneLoaded?.Invoke(sceneName);
+
+        yield return null;
+
+        Scene loadedScene = SceneManager.GetSceneByName(sceneName);
+        if (loadedScene.IsValid())
+        {
+            SceneManager.SetActiveScene(loadedScene);
+        }
+
+        UnloadAllScenesExceptActive();
     }
 
     public void UnloadScenes(string sceneName)

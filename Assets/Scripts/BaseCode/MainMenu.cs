@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    public GlobalSceneManager globalSceneManager;
+    public GlobalSceneManager_s globalSceneManager;
 
     public void OnJugarButton()
     {

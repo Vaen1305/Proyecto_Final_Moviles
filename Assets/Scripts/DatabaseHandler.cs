@@ -35,16 +35,29 @@ public class DatabaseHandler : MonoBehaviour
     }
     */
 
-    public void UpdateFirstName(string newName, int newId)
+    public void UpdateFirstName(string newName, int newId, int newScore)
     {
         studentSO.SetName(newName);
         studentSO.SetId(newId);
+        studentSO.SetScore(newScore);
 
         var studentRef = reference.Child("users").Child(userID).Child(newId.ToString());
 
-        Student newStudent = new Student(newName, newId);
+        Student newStudent = new Student(newName, newId, newScore);
         string json = JsonUtility.ToJson(newStudent);
         studentRef.SetRawJsonValueAsync(json);
+    }
+
+    public void SaveScoretoFirebase(string playerName, int score)
+    {
+        var scoresRef = FirebaseDatabase.DefaultInstance.RootReference.Child("scores").Push();
+        scoresRef.Child("name").SetValueAsync(playerName);
+        scoresRef.Child("score").SetValueAsync(score);
+    }
+
+    public void UpdateStudentScoreInFirebase(int userId, int newScore)
+    {
+        reference.Child("users").Child(userID).Child(userId.ToString()).Child("score").SetValueAsync(newScore);
     }
 
     public IEnumerator GetFirstName(Action<string> onCallBack)

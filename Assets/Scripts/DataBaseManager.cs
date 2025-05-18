@@ -36,10 +36,12 @@ public class Student
 {
     public string name;
     public int id;
+    public int score;
 
-    public Student(string name, int id)
+    public Student(string name, int id,int score)
     {
         this.name = name;
         this.id = id;
+        this.score = score;
     }
 }
