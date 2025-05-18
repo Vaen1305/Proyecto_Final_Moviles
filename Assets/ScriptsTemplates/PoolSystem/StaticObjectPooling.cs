@@ -1,10 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class StaticObjectPooling : MonoBehaviour
+public class ObjectPooler : MonoBehaviour
 {
-    public static StaticObjectPooling Instance { get; private set; }
-
     [System.Serializable]
     public class Pool
     {
@@ -18,38 +16,19 @@ public class StaticObjectPooling : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
+        InitializePool();
+    }
 
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
-
+    public void InitializePool()
+    {
         poolDictionary = new Dictionary<string, Queue<PoolObject>>();
 
-        for (int i = 0; i < pools.Count; i++)
+        foreach (var pool in pools)
         {
-            Queue<PoolObject> objectPool = new Queue<PoolObject>();
-
-            for (int j = 0; j < pools[i].size; j++)
-            {
-                GameObject obj = Instantiate(pools[i].prefab);
-                PoolObject poolObj = obj.GetComponent<PoolObject>();
-                if (poolObj == null)
-                {
-                    poolObj = obj.AddComponent<PoolObject>();
-                }
-
-                poolObj.poolTag = pools[i].tag;
-                obj.SetActive(false);
-                objectPool.Enqueue(poolObj);
-            }
-
-            poolDictionary.Add(pools[i].tag, objectPool);
+            CreatePool(pool.tag, pool.prefab, pool.size);
         }
     }
+
     public void CreatePool(string tag, GameObject prefab, int size)
     {
         if (poolDictionary.ContainsKey(tag))
@@ -87,7 +66,8 @@ public class StaticObjectPooling : MonoBehaviour
 
         if (poolDictionary[tag].Count == 0)
         {
-            Debug.LogWarning("Pool with tag " + tag + " is empty.");
+            Debug.LogWarning("Pool with tag " + tag + " is empty. Consider increasing pool size.");
+            // Opcional: Podrías instanciar un nuevo objeto aquí si lo prefieres
             return null;
         }
 

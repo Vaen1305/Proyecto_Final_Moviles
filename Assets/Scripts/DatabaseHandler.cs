@@ -71,13 +71,21 @@ public class DatabaseHandler : MonoBehaviour
         if (userNameData != null)
         {
             DataSnapshot snapshot = userNameData.Result;
-            string name = snapshot.Value.ToString();
-            studentSO.SetName(name);
-            onCallBack?.Invoke(name);
+            if (snapshot != null && snapshot.Value != null)
+            {
+                string name = snapshot.Value.ToString();
+                studentSO.SetName(name);
+                onCallBack?.Invoke(name);
+            }
+            else
+            {
+                Debug.LogWarning("");
+                onCallBack?.Invoke("");
+            }
         }
     }
 
-    
+
     private IEnumerator GetLastName(Action<string> onCallBack)
     {
         var userNameData = reference.Child("users").Child(userID).Child("lastName").GetValueAsync();
@@ -139,7 +147,7 @@ public class User
 {
     public string firstName;
     public string lastName;
-    //public int codeID;
+    // public int codeID;
 
 
     public User(string firstName, string lastName/*,int codeID*/)

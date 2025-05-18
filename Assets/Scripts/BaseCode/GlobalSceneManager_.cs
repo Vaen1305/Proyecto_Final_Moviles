@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using System.Collections;
+using UnityEngine.SocialPlatforms;
 
 public class GlobalSceneManager_s : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class GlobalSceneManager_s : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        Time.timeScale = 1f;
         StartCoroutine(LoadSceneAsync(sceneName));
+        
     }
 
     private IEnumerator LoadSceneAsync(string sceneName)
