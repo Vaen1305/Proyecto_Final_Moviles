@@ -5,11 +5,11 @@ using Firebase.Auth;
 using Firebase;
 using System.Threading.Tasks;
 using UnityEngine.Events;
-
+using TMPro;
 public class Authentification : MonoBehaviour
 {
-    [SerializeField] private string email;
-    [SerializeField] private string password;
+    [SerializeField] private TMP_InputField email;
+    [SerializeField] private TMP_InputField password;
 
     [Header("Bool Actions")]
     [SerializeField] private bool signUp = false;
@@ -25,39 +25,17 @@ public class Authentification : MonoBehaviour
         _authReference = FirebaseAuth.GetAuth(FirebaseApp.DefaultInstance);
     }
 
-    private void Start()
-    {
-        if (signUp)
-        {
-            Debug.Log("Start Register");
-            StartCoroutine(RegisterUser(email, password));
-        }
-
-        if (signIn)
-        {
-            Debug.Log("Start Login");
-            StartCoroutine(SignInWithEmail(email, password));
-        }
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            LogOut();
-        }
-    }
     public void LogIn()
     {
-        StartCoroutine(SignInWithEmail(email, password));
+        StartCoroutine(SignInWithEmail(email.text, password.text));
     }
     public void SignUp()
     {
-        StartCoroutine(RegisterUser(email, password));
+        StartCoroutine(RegisterUser(email.text, password.text));
     }
     public void RecoverPassword()
     {
-        StartCoroutine(RecoverPassword(email));
+        StartCoroutine(RecoverPassword(email.text));
     }
 
 
