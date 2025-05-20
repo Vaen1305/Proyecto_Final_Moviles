@@ -835,7 +835,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1218864002}
         m_TargetAssemblyTypeName: Authentification, Assembly-CSharp
         m_MethodName: RecoverPassword
         m_Mode: 1
@@ -1953,7 +1953,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1218864002}
         m_TargetAssemblyTypeName: Authentification, Assembly-CSharp
         m_MethodName: LogIn
         m_Mode: 1
@@ -2700,6 +2700,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1189692870}
   m_CullTransparentMesh: 1
+--- !u!114 &1218864002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+  m_PrefabInstance: {fileID: 1409233286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 922a3c4a5467a4544b1a1d5adffa43dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1344868983
 GameObject:
   m_ObjectHideFlags: 0
@@ -2833,6 +2844,139 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1344868983}
   m_CullTransparentMesh: 1
+--- !u!1001 &1409233286
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1240.3004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1301.4711
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9.628108
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2197220990625056032, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: email
+      value: 
+      objectReference: {fileID: 990069157}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: password
+      value: 
+      objectReference: {fileID: 1811300858}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1936830353}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1936830353}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1936830353}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1936830353}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5210107829205913571, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: m_Name
+      value: Authentification
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
 --- !u!1 &1415773097
 GameObject:
   m_ObjectHideFlags: 0
@@ -4265,7 +4409,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1218864002}
         m_TargetAssemblyTypeName: Authentification, Assembly-CSharp
         m_MethodName: SignUp
         m_Mode: 1
@@ -4596,3 +4740,4 @@ SceneRoots:
   - {fileID: 658908792}
   - {fileID: 213100995}
   - {fileID: 15755874}
+  - {fileID: 1409233286}
