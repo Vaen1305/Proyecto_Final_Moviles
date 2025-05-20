@@ -9,6 +9,7 @@ public class DatabaseHandler : MonoBehaviour
     private string userID;
     private DatabaseReference reference;
     [SerializeField] private StudentSO studentSO;
+    [SerializeField] private Authentification authentification;
 
     private void Awake()
     {
@@ -35,19 +36,18 @@ public class DatabaseHandler : MonoBehaviour
     }
     */
 
-    public void UpdateFirstName(string newName, int newId, int newScore)
+    public void UpdateFirstName(string newName,string newId, int newScore)
     {
-        studentSO.SetName(newName);
-        studentSO.SetId(newId);
-        studentSO.SetScore(newScore);
+        authentification.SetMail(newName);
+        authentification.SetPassword(newId);
+        authentification.SetScore(newScore);
 
         var studentRef = reference.Child("users").Child(userID).Child(newId.ToString());
 
-        Student newStudent = new Student(newName, newId, newScore);
+        Mail newStudent = new Mail(newName, newId, newScore);
         string json = JsonUtility.ToJson(newStudent);
         studentRef.SetRawJsonValueAsync(json);
     }
-
     public void SaveScoretoFirebase(string playerName, int score)
     {
         var scoresRef = FirebaseDatabase.DefaultInstance.RootReference.Child("scores").Push();
@@ -74,7 +74,7 @@ public class DatabaseHandler : MonoBehaviour
             if (snapshot != null && snapshot.Value != null)
             {
                 string name = snapshot.Value.ToString();
-                studentSO.SetName(name);
+                authentification.SetMail(name);
                 onCallBack?.Invoke(name);
             }
             else

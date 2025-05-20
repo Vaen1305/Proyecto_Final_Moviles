@@ -7,7 +7,7 @@ public class DataBaseManager : MonoBehaviour
 {
     [SerializeField] private string UserID;
     [SerializeField] private StudentSO studentSO;
-
+    [SerializeField] private Authentification authentification;
     private DatabaseReference reference;
 
     // Start is called before the first frame update
@@ -24,7 +24,7 @@ public class DataBaseManager : MonoBehaviour
     public void UpdloadStudent()
     {
         Student newStudent = studentSO.GetBasicStudentData();
-
+        Mail newauthentification = authentification.GetBasicData();
         string json = JsonUtility.ToJson(newStudent);
 
         reference.Child("Students").Child(UserID)./*Child(newStudent.nickName).*/SetRawJsonValueAsync(json);
@@ -42,6 +42,19 @@ public class Student
     {
         this.name = name;
         this.id = id;
+        this.score = score;
+    }
+}
+[System.Serializable]
+public class Mail
+{
+    public string email;
+    public string password;
+    public int score;
+    public Mail(string email, string password, int score)
+    {
+        this.email = email;
+        this.password = password;
         this.score = score;
     }
 }

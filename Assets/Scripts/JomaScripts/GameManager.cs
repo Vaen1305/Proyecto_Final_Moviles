@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text finalScoreText;
     [SerializeField] private DatabaseHandler databaseHandler;
     [SerializeField] private StudentSO studentSO;
+    [SerializeField] private Authentification authentification;
 
     private int currentScore = 0;
     private int highScore = 0;
