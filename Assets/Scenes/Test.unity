@@ -2919,7 +2919,7 @@ PrefabInstance:
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1936830353}
+      objectReference: {fileID: 1861684855}
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
@@ -2927,7 +2927,7 @@ PrefabInstance:
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1936830353}
+      objectReference: {fileID: 1861684855}
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -2953,8 +2953,16 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogInSuccesful.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
+      propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5143341728812777173, guid: c64b297a721d52b48b78cd1a29a42f5e, type: 3}
       propertyPath: OnLogOutSuccessful.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
